@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('contact_widgets', function (Blueprint $table) {
             $table->id();
+            $table->string('media_social');
+            $table->string('link');
+            $table->enum('status',['show','hide']);
             $table->timestamps();
         });
     }

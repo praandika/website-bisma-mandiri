@@ -9,7 +9,7 @@
                             <img src="{{ asset('img/'.$o->image.'') }}" class="img-fluid mx-auto d-block fadeInKiri">
                             <span class="nomor fadeIn"><i class="fa-sharp fa-solid fa-phone fa-shake"
                                     style="color: #ffffff;"></i>
-                                {{ wordwrap($o->phoneFormat, 4, "-", true); }}
+                                {{ wordwrap($o->phone_format, 4, "-", true); }}
                             </span>
                         </div>
                         <div class="name fadeIn">

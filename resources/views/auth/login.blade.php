@@ -32,7 +32,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('admin/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="{{ route('product') }}">
+                        <a class="nav-link me-2" href="{{ route('product.index') }}">
                             <i class="fa fa-motorcycle opacity-6  me-1"></i>
                             Product
                         </a>
@@ -77,7 +77,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="{{ route('contact') }}">
+                        <a class="nav-link me-2" href="{{ route('contact.index') }}">
                             <i class="fas fa-phone opacity-6  me-1"></i>
                             Contact
                         </a>
@@ -100,7 +100,7 @@
     <main class="main-content  mt-0">
         <section class="min-vh-100 mb-8">
             <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-                style="background-image: url('../assets/img/curved-images/curved14.jpg');">
+                style="background-image: url('admin/img/curved-images/curved14.jpg');">
                 <span class="mask bg-gradient-dark opacity-6"></span>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -168,7 +168,7 @@
                         <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                             CRM Team
                         </a>
-                        <a href="{{ route('product') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        <a href="{{ route('product.index') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                             Products
                         </a>
                         <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">

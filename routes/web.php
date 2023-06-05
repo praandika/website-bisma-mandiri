@@ -1,7 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FeaturedController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\ContactWidgetController;
+use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\UserController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +25,21 @@ use App\Http\Controllers\LandingController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+// Route::get('/', function () {
+//     return view('main');
+// });
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('/header', HeaderController::class);
+Route::resource('/banner', BannerController::class);
+Route::resource('/product', ProductController::class);
+Route::resource('/featured', FeaturedController::class);
+Route::resource('/sales', SalesController::class);
+Route::resource('/footer', FooterController::class);
+Route::resource('/contact', ContactWidgetController::class);
+Route::resource('/marketplace', MarketplaceController::class);
+Route::get('/user', [UserController::class, 'index'])->name('user');

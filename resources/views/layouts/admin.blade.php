@@ -30,9 +30,10 @@
     <link href="{{ asset('admin/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/78adb693c3.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('admin/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -44,16 +45,16 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
-                <img src="{{ asset('img/logo-text.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold"></span>
+            <a class="navbar-brand m-0" href="{{ route('home') }}">
+                <img src="{{ asset('img/logo.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Bisma Mandiri</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('header') }}">
+                    <a class="nav-link  active" href="{{ route('header.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-heading"></i>
                         </div>
@@ -61,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('banner') }}">
+                    <a class="nav-link  " href="{{ route('banner.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-images"></i>
                         </div>
@@ -69,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('product') }}">
+                    <a class="nav-link  " href="{{ route('product.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-motorcycle"></i>
                         </div>
@@ -77,7 +78,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('featured') }}">
+                    <a class="nav-link  " href="{{ route('featured.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-star"></i>
                         </div>
@@ -85,7 +86,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('sales') }}">
+                    <a class="nav-link  " href="{{ route('sales.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-user-tie"></i>
                         </div>
@@ -93,7 +94,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('footer') }}">
+                    <a class="nav-link  " href="{{ route('footer.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-font-awesome"></i>
                         </div>
@@ -101,7 +102,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('contact-widget') }}">
+                    <a class="nav-link  " href="{{ route('contact.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-square-phone"></i>
                         </div>
@@ -109,7 +110,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('marketplace') }}">
+                    <a class="nav-link  " href="{{ route('marketplace.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-store"></i>
                         </div>
@@ -117,7 +118,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="nav-link  " href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
                         </div>
@@ -127,23 +128,25 @@
                         @csrf
                     </form>
                 </li>
+                @if(Auth::user()->access == 'master')
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Master Access</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('user') }}">
+                    <a class="nav-link  " href="{{ route('user') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-user-gear"></i>
                         </div>
                         <span class="nav-link-text ms-1">User List</span>
                     </a>
                 </li>
+                @endif
             </ul>
         </div>
         <div class="sidenav-footer mx-3 ">
             <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
                 <div class="full-background"
-                    style="background-image: url('../assets/img/curved-images/white-curved.jpg')"></div>
+                    style="background-image: url('admin/img/curved-images/white-curved.jpg')"></div>
                 <div class="card-body text-start p-3 w-100">
                     <div
                         class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
@@ -176,6 +179,7 @@
                     <h6 class="font-weight-bolder mb-0">@yield('title')</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
@@ -248,7 +252,7 @@
                                         target="_blank">CRM Team</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('product') }}" class="nav-link pe-0 text-muted"
+                                    <a href="{{ route('product.index') }}" class="nav-link pe-0 text-muted"
                                         target="_blank">Products</a>
                                 </li>
                             </ul>

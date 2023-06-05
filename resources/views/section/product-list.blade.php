@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-title">
                         <span class="harga">
-                            Rp. {{ number_format($o->harga, 0, ',','.') }}
+                            Rp. {{ number_format($o->price, 0, ',','.') }}
                         </span>
                         <span>
                             {{ ucwords($o->name) }} <br>

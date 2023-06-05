@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('marketplaces', function (Blueprint $table) {
             $table->id();
+            $table->string('marketplace');
+            $table->string('marketplace_abbr');
+            $table->string('link');
+            $table->string('image');
             $table->timestamps();
         });
     }

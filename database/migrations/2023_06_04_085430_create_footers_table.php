@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->enum('status',['show','hide']);
             $table->timestamps();
         });
     }

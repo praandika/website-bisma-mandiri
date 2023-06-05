@@ -132,11 +132,11 @@
         <div class="featured-wrap featured-mobile">
             <div id="carouselAutoplaying" class="carousel slide banner" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach($product as $o)
+                    @foreach($featured as $o)
                     <div class="carousel-item active">
                         <div class="featured-product">
                             <div class="title">{{ ucwords($o->name) }}</div>
-                            <img src="{{ asset('img/'.$o->image2) }}" class="img-fluid">
+                            <img src="{{ asset('img/'.$o->image) }}" class="img-fluid">
                         </div>
                     </div>
                     @endforeach

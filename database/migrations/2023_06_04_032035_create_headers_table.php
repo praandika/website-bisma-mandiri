@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('headers', function (Blueprint $table) {
             $table->id();
             $table->string('menu');
-            $table->enum('menu_status',['show','hide']);
+            $table->string('link');
+            $table->string('icon');
+            $table->enum('newtab',[0,1]);
+            $table->enum('status',['show','hide']);
             $table->timestamps();
         });
     }
