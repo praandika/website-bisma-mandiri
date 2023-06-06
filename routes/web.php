@@ -44,4 +44,5 @@ Route::resource('/footer', FooterController::class);
 Route::resource('/contact', ContactWidgetController::class);
 Route::resource('/marketplace', MarketplaceController::class);
 Route::post('image/change/{id}', [ImageController::class, 'change'])->name('image.change');
+Route::post('image/store', [ImageController::class, 'store'])->name('image.store');
 Route::get('/user', [UserController::class, 'index'])->name('user');

@@ -5,9 +5,11 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-12">
         <button type="button" class="btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal"
             data-bs-target="#addMenu">Add Menu</button>
+    </div>
+    <div class="col-sm-12 col-md-6">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
@@ -51,7 +53,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <span
-                                            class="text-secondary text-xs {{ $o->newtab == 1 ? 'font-weight-bold' }}">{{ $o->newtab == 1 ? 'Yes' : 'No' }}</span>
+                                            class="text-secondary text-xs {{ $o->newtab == 1 ? 'font-weight-bold' : '' }}">{{ $o->newtab == 1 ? 'Yes' : 'No' }}</span>
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         <span
@@ -75,7 +77,7 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-6">
-        <div class="col-12 mt-4">
+        <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 p-3">
                     <h6 class="mb-1">Logo</h6>
@@ -84,13 +86,13 @@
                 <div class="card-body p-3">
                     <div class="row">
                         
-                        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                        <div class="col-xl-12 col-md-6 mb-xl-0 mb-4">
                         @forelse($logo as $o)
                             <div class="card card-blog card-plain">
                                 <div class="position-relative">
                                     <a class="d-block shadow-xl border-radius-xl">
                                         <img src="{{ asset('img/'.$o->image.'') }}" alt="img-blur-shadow"
-                                            class="img-fluid shadow border-radius-xl" id="imgPreview" width="200px">
+                                            class="img-fluid shadow border-radius-xl" id="imgPreview" width="300px">
                                         
                                     </a>
                                 </div>
@@ -98,7 +100,7 @@
                                     <p class="text-gradient text-dark mb-2 text-sm">Logo</p>
                                     <form action="{{ route('image.change',$o->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf()
-                                        <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
+                                        <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                                         <input type="hidden" name="section" value="logo">
                                         <div class="d-flex align-items-center justify-content-between">
@@ -120,7 +122,7 @@
                                     <p class="text-gradient text-dark mb-2 text-sm">Logo</p>
                                     <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf()
-                                        <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
+                                        <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                                         <input type="hidden" name="section" value="logo">
                                         <div class="d-flex align-items-center justify-content-between">

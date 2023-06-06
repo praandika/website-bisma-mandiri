@@ -8,12 +8,14 @@
     @else
         @include('section.admin.header')
     @endif
-@else
+@elseif(Route::is('banner.*'))
     @if(Route::is('banner.edit'))
         @include('section.admin.banner-edit')
     @else
         @include('section.admin.banner')
     @endif
+@else
+<h1>Welcome lads!</h1>
 @endif
 
 @endsection

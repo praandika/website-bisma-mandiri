@@ -1,5 +1,5 @@
 <div class="modal fade" id="addBanner" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
                 <div class="card card-plain">
@@ -10,9 +10,11 @@
                     <div class="card-body">
                         <form action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
                             @csrf()
+                            <div class="input-group mb-3">
+                                <img src="{{ asset('img/noimage.png') }}" alt="Uploading Image" id="imgPreview" width="200px">
+                            </div>
                             <label for="image">Select Image</label>
                             <div class="input-group mb-3">
-                                <img src="#" alt="Uploading Image" id="imgPreview" width="200px">
                                 <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                             </div>
