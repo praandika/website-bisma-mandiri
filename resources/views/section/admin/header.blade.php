@@ -61,6 +61,7 @@
                                         <a href="{{ route('header.edit',$o->id) }}"
                                             class="text-primary font-weight-bold text-xs" data-toggle="tooltip"
                                             data-original-title="Edit header">
+                                            <i class="fa-sharp fa-regular fa-pen-to-square"></i>&nbsp;
                                             Edit
                                         </a>
                                     </td>
@@ -84,10 +85,10 @@
                     <div class="row">
                         
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                        @forelse($logo as $o)
                             <div class="card card-blog card-plain">
                                 <div class="position-relative">
                                     <a class="d-block shadow-xl border-radius-xl">
-                                        @foreach($data as $o)
                                         <img src="{{ asset('img/'.$o->image.'') }}" alt="img-blur-shadow"
                                             class="img-fluid shadow border-radius-xl" id="imgPreview" width="200px">
                                         
@@ -95,24 +96,49 @@
                                 </div>
                                 <div class="card-body px-1 pb-0">
                                     <p class="text-gradient text-dark mb-2 text-sm">Logo</p>
-                                    <form action="{{ route('image.update',$o->id) }}" method="post" enctype="multipart/form-data">
-                                        @endforeach
+                                    <form action="{{ route('image.change',$o->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf()
                                         <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
+                                        <input type="hidden" name="section" value="logo">
                                         <div class="d-flex align-items-center justify-content-between">
                                         <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Change Logo</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                        @empty
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="{{ asset('img/noimage.png') }}" alt="img-blur-shadow"
+                                            class="img-fluid shadow border-radius-xl" id="imgPreview" width="200px">
+                                        
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <p class="text-gradient text-dark mb-2 text-sm">Logo</p>
+                                    <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
+                                    @csrf()
+                                        <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
+                                    aria-describedby="image-addon" required>
+                                        <input type="hidden" name="section" value="logo">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Save Logo</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endforelse
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@include('section.admin.header-create')
 @endsection
 
 @push('after-script')

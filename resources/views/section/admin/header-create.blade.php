@@ -9,6 +9,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('header.store') }}" method="post">
+                        @csrf()
                             <label for="menu">Menu</label>
                             <div class="input-group mb-3">
                                 <input type="text" name="menu" class="form-control" placeholder="Menu Title" aria-label="menu"

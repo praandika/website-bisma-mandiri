@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Header;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Console\View\Components\Alert;
 
 class HeaderController extends Controller
 {
@@ -15,7 +17,8 @@ class HeaderController extends Controller
     public function index()
     {
         $data = Header::all();
-        return view('home', compact('data'));
+        $logo = Image::where('section','logo')->limit(1)->get();
+        return view('home', compact('data','logo'));
     }
 
     /**
@@ -36,7 +39,21 @@ class HeaderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->newtab != null) {
+            $check = 1;
+        } else {
+            $check = 0;
+        }
+        
+        $data = New Header;
+        $data->image = $request->image;
+        $data->link = $request->link;
+        $data->icon = $request->icon;
+        $data->newtab = $check;
+        $data->save();
+
+        toast('Menu successfully added','success');
+        return redirect()->back();
     }
 
     /**

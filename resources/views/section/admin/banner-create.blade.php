@@ -9,6 +9,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf()
                             <label for="image">Select Image</label>
                             <div class="input-group mb-3">
                                 <img src="#" alt="Uploading Image" id="imgPreview" width="200px">
@@ -18,12 +19,12 @@
                             <label for="name">Banner Title</label>
                             <div class="input-group mb-3">
                                 <input type="text" name="name" class="form-control" placeholder="Banner Title" aria-label="Name"
-                                    aria-describedby="name-addon">
+                                    aria-describedby="name-addon" required>
                             </div>
                             <label for="description">Description</label>
                             <div class="input-group mb-3">
                                 <input type="text" name="description" class="form-control" placeholder="Description" aria-label="Description"
-                                    aria-describedby="description-addon">
+                                    aria-describedby="description-addon" required>
                             </div>
                             <div class="text-center">
                                 <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Save Banner</button>

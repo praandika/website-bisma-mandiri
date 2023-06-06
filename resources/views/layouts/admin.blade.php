@@ -330,6 +330,8 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
+
     @stack('before-script')
     <!--   Core JS Files   -->
     <script src="{{ asset('admin/js/core/popper.min.js') }}"></script>

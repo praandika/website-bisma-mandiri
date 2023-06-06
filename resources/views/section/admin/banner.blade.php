@@ -42,7 +42,7 @@
                                 {{ ucwords($o->description) }}
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Banner</button>
+                                <a href="{{ route('banner.edit',$o->id) }}" class="btn btn-outline-primary btn-sm mb-0">View Banner</a>
                             </div>
                         </div>
                     </div>
@@ -53,5 +53,5 @@
     </div>
 </div>
 
-@include('banner-create')
+@include('section.admin.banner-create')
 @endsection

@@ -35,7 +35,35 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = New Image;
+        $data->section = $request->section;
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+        $data->image = $img_file;
+        $data->save();
+
+        toast('Logo successfully added','success');
+        return redirect()->back();
+    }
+
+    public function change(Request $request, $id){
+        $data = Image::find($id);
+        if ($data->image != '' && $data->image != 'noimage.png') {
+            $img_prev = $request->img_prev;
+            unlink('img/'.$img_prev);
+        }
+
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+
+        $data->image = $img_file;
+        $data->save();
+        toast('Image has been updated!','success');
+        return redirect()->back();
     }
 
     /**

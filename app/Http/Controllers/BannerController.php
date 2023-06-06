@@ -36,7 +36,22 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        $data = new Banner;
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+        $data->image = $img_file;
+        $data->save();
+        
+        toast('Banner successfully added','success');
+        return redirect()->back();
     }
 
     /**
