@@ -32,8 +32,10 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/78adb693c3.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
+    @stack('before-css')
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('admin/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+    @stack('after-css')
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -328,6 +330,7 @@
             </div>
         </div>
     </div>
+    @stack('before-script')
     <!--   Core JS Files   -->
     <script src="{{ asset('admin/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('admin/js/core/bootstrap.min.js') }}"></script>
@@ -348,6 +351,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('admin/js/soft-ui-dashboard.min.js?v=1.0.7') }}"></script>
+    @stack('after-script')
 </body>
 
 </html>

@@ -1,6 +1,12 @@
 @extends('layouts.admin')
-@section('menu','header')
-@section('title','Header')
+
 @section('content')
-<h1>Welcome lads!</h1>
+
+@if(Route::is('header.*'))
+    @if(Route::is('header.edit'))
+        @include('section.admin.header-edit')
+    @else
+        @include('section.admin.header')
+@endif
+
 @endsection

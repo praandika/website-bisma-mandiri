@@ -14,7 +14,8 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        //
+        $data = Header::all();
+        return view('home', compact('data'));
     }
 
     /**
