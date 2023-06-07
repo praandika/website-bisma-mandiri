@@ -1,10 +1,10 @@
 <div class="modal fade" id="addMenu" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
                 <div class="card card-plain">
                     <div class="card-header pb-0 text-left">
-                        <h3 class="font-weight-bolder text-info text-gradient">Add Menu</h3>
+                        <h3 class="font-weight-bolder text-primary text-gradient">Add Menu</h3>
                         <p class="mb-0">Create menu and & link</p>
                     </div>
                     <div class="card-body">
@@ -30,14 +30,14 @@
                                 <label class="form-check-label" for="newtab">Open in new tab</label>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Save Menu</button>
+                                <button type="button" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Save Menu</button>
                             </div>
                         </form>
                     </div>
                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                         <p class="mb-4 text-sm mx-auto">
                             Supported by
-                            <a href="javascript:;" class="text-info text-gradient font-weight-bold">Andika Pranayoga</a>
+                            <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Andika Pranayoga</a>
                         </p>
                     </div>
                 </div>

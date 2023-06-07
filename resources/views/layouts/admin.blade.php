@@ -56,7 +56,15 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  active" href="{{ route('header.index') }}">
+                    <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-sharp fa-solid fa-home"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('header.*') ? 'active' : '' }}" href="{{ route('header.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-heading"></i>
                         </div>
@@ -64,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('banner.index') }}">
+                    <a class="nav-link {{ Route::is('banner.*') ? 'active' : '' }}" href="{{ route('banner.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-images"></i>
                         </div>
@@ -72,7 +80,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('product.index') }}">
+                    <a class="nav-link {{ Route::is('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-motorcycle"></i>
                         </div>
@@ -80,7 +88,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('featured.index') }}">
+                    <a class="nav-link {{ Route::is('featured.*') ? 'active' : '' }}" href="{{ route('featured.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-star"></i>
                         </div>
@@ -88,7 +96,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('sales.index') }}">
+                    <a class="nav-link {{ Route::is('sales.*') ? 'active' : '' }}" href="{{ route('sales.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-user-tie"></i>
                         </div>
@@ -96,7 +104,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('footer.index') }}">
+                    <a class="nav-link {{ Route::is('footer.*') ? 'active' : '' }}" href="{{ route('footer.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-regular fa-font-awesome"></i>
                         </div>
@@ -104,7 +112,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('contact.index') }}">
+                    <a class="nav-link {{ Route::is('contact.*') ? 'active' : '' }}" href="{{ route('contact.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-square-phone"></i>
                         </div>
@@ -112,7 +120,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('marketplace.index') }}">
+                    <a class="nav-link {{ Route::is('marketplace.*') ? 'active' : '' }}" href="{{ route('marketplace.index') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-store"></i>
                         </div>
@@ -120,7 +128,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
                         </div>
@@ -135,7 +143,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Master Access</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="{{ route('user') }}">
+                    <a class="nav-link {{ Route::is('user.*') ? 'active' : '' }}" href="{{ route('user') }}">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-sharp fa-solid fa-user-gear"></i>
                         </div>

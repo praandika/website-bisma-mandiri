@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = Product::all();
+        return view('home', compact('data'));
     }
 
     /**
@@ -35,7 +36,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        $data = new Product;
+        $data->name = $request->name;
+        $data->price = $request->price;
+        $data->transmition = $request->transmition;
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+        $data->image = $img_file;
+        $data->save();
+        
+        toast('Product successfully added','success');
+        return redirect()->back();
     }
 
     /**
