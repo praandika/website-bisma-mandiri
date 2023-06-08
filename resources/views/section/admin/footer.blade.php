@@ -75,10 +75,13 @@
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                                 <div class="card-body px-1 pb-0">
+                                <form action="{{ route('map.change',$o->id) }}" method="post" enctype="multipart/form-data">
+                                @csrf()
+                                    <input type="text" name="link" class="form-control mb-3" placeholder="Insert maps link to change the current maps">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <a href="{{ route('maps.edit',$o->id) }}"
-                                            class="btn btn-outline-primary btn-sm mb-0">View Maps</a>
+                                    <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Change Maps</button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         @empty
@@ -88,10 +91,13 @@
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                                 <div class="card-body px-1 pb-0">
+                                <form action="{{ route('map.store') }}" method="post" enctype="multipart/form-data">
+                                    @csrf()
+                                    <input type="text" name="link" class="form-control mb-3" placeholder="Insert maps link to change the current maps">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <a href="{{ route('maps.edit',$o->id) }}"
-                                            class="btn btn-outline-primary btn-sm mb-0">View Maps</a>
+                                        <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Save Maps</button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         @endforelse

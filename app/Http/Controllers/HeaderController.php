@@ -46,7 +46,7 @@ class HeaderController extends Controller
         }
         
         $data = New Header;
-        $data->image = $request->image;
+        $data->menu = $request->menu;
         $data->link = $request->link;
         $data->icon = $request->icon;
         $data->newtab = $check;

@@ -35,7 +35,21 @@ class MapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = New Map;
+        $data->link = $request->link;
+        $data->save();
+        
+        toast('Maps successfully added','success');
+        return redirect()->back();
+    }
+
+    public function change(Request $request, $id){
+        $data = Map::find($id);
+        $data->link = $request->link;
+        $data->update();
+        
+        toast('Maps has been updated!','success');
+        return redirect()->back();
     }
 
     /**
