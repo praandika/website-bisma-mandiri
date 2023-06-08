@@ -11,7 +11,7 @@
                         <form action="{{ route('sales.store') }}" method="post" enctype="multipart/form-data">
                             @csrf()
                             <div class="input-group mb-3">
-                                <img src="{{ asset('img/noimage.png') }}" alt="Uploading Image" id="imgPreview" width="200px">
+                                <img src="{{ asset('img/noimage.png') }}" alt="Uploading Image" id="imgPreview" width="300px">
                             </div>
                             <label for="image">Select Image</label>
                             <div class="input-group mb-3">

@@ -26,6 +26,12 @@
     @else
         @include('section.admin.sales')
     @endif
+@elseif(Route::is('footer.*'))
+    @if(Route::is('footer.edit'))
+        @include('section.admin.footer-edit')
+    @else
+        @include('section.admin.footer')
+    @endif
 @else
 <h1>Welcome lads!</h1>
 @endif
