@@ -14,7 +14,8 @@ class ContactWidgetController extends Controller
      */
     public function index()
     {
-        //
+        $data = ContactWidget::all();
+        return view('home', compact('data'));
     }
 
     /**
@@ -35,7 +36,13 @@ class ContactWidgetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = New ContactWidget();
+        $data->media_social = $request->media_social;
+        $data->link = $request->link;
+        $data->save();
+
+        toast('Media social successfully added','success');
+        return redirect()->back();
     }
 
     /**

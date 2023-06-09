@@ -32,6 +32,18 @@
     @else
         @include('section.admin.footer')
     @endif
+@elseif(Route::is('contact.*'))
+    @if(Route::is('contact.edit'))
+        @include('section.admin.contact-widget-edit')
+    @else
+        @include('section.admin.contact-widget')
+    @endif
+@elseif(Route::is('marketplace.*'))
+    @if(Route::is('marketplace.edit'))
+        @include('section.admin.marketplace-edit')
+    @else
+        @include('section.admin.marketplace')
+    @endif
 @else
 <h1>Welcome lads!</h1>
 @endif

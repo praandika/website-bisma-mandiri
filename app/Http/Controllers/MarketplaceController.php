@@ -14,7 +14,8 @@ class MarketplaceController extends Controller
      */
     public function index()
     {
-        //
+        $data = Marketplace::all();
+        return view('home', compact('data'));
     }
 
     /**
@@ -35,7 +36,23 @@ class MarketplaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        $data = new Marketplace;
+        $data->marketplace = $request->marketplace;
+        $data->marketplace_abbr = $request->marketplace_abbr;
+        $data->link = $request->link;
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+        $data->image = $img_file;
+        $data->save();
+        
+        toast('Marketplace successfully added','success');
+        return redirect()->back();
     }
 
     /**
