@@ -14,7 +14,8 @@ class FeaturedController extends Controller
      */
     public function index()
     {
-        //
+        $data = Featured::all();
+        return view('home', compact('data'));
     }
 
     /**
@@ -35,7 +36,21 @@ class FeaturedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        $data = new Featured;
+        $data->name = $request->name;
+        $img = $request->file('image');
+        $img_file = time()."_".$img->getClientOriginalName();
+        $dir_img = 'img';
+        $img->move($dir_img,$img_file);
+        $data->image = $img_file;
+        $data->save();
+        
+        toast('Mobile Featured successfully added','success');
+        return redirect()->back();
     }
 
     /**

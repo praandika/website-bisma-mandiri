@@ -29,7 +29,7 @@
                                     aria-describedby="description-addon" required>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0">Save Banner</button>
+                                <button type="submit" class="btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0">Save Banner</button>
                             </div>
                         </form>
                     </div>

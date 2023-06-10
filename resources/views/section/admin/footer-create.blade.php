@@ -19,7 +19,7 @@
                                     aria-describedby="image-addon" required>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-warning btn-lg w-100 mt-4 mb-0">Save Footer's Image</button>
+                                <button type="submit" class="btn btn-round bg-gradient-warning btn-lg w-100 mt-4 mb-0">Save Footer's Image</button>
                             </div>
                         </form>
                     </div>

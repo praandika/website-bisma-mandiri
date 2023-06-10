@@ -18,7 +18,8 @@ class HeaderController extends Controller
     {
         $data = Header::all();
         $logo = Image::where('section','logo')->limit(1)->get();
-        return view('home', compact('data','logo'));
+        $logoMobile = Image::where('section','logomobile')->limit(1)->get();
+        return view('home', compact('data','logo','logoMobile'));
     }
 
     /**
@@ -75,7 +76,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        //
+        view('home',compact('header'));
     }
 
     /**
@@ -87,7 +88,20 @@ class HeaderController extends Controller
      */
     public function update(Request $request, Header $header)
     {
-        //
+        if ($request->newtab != null) {
+            $check = 1;
+        } else {
+            $check = 0;
+        }
+
+        $data = Header::find($header->id);
+        $data->menu = $request->menu;
+        $data->link = $request->link;
+        $data->icon = $request->icon;
+        $data->newtab = $check;
+        $data->update();
+        toast('Menu has been updated!','success');
+        return redirect()->back();
     }
 
     /**

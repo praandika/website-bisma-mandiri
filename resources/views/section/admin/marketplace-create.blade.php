@@ -34,7 +34,7 @@
                                     aria-describedby="link-addon" required>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0">Save Marketplace</button>
+                                <button type="submit" class="btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0">Save Marketplace</button>
                             </div>
                         </form>
                     </div>

@@ -20,6 +20,12 @@
     @else
         @include('section.admin.product')
     @endif
+@elseif(Route::is('featured.*'))
+    @if(Route::is('featured.edit'))
+        @include('section.admin.featured-edit')
+    @else
+        @include('section.admin.featured')
+    @endif
 @elseif(Route::is('sales.*'))
     @if(Route::is('sales.edit'))
         @include('section.admin.sales-edit')
@@ -45,7 +51,7 @@
         @include('section.admin.marketplace')
     @endif
 @else
-<h1>Welcome lads!</h1>
+    <h1>Welcome Lads!</h1>
 @endif
 
 @endsection

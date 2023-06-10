@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('menu');
             $table->string('link');
             $table->string('icon');
-            $table->enum('newtab',[0,1]);
+            $table->boolean('newtab');
             $table->enum('status',['show','hide']);
             $table->timestamps();
         });

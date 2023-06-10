@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('marketplace_abbr');
             $table->string('link');
             $table->string('image');
+            $table->enum('status',['show','hide']);
             $table->timestamps();
         });
     }

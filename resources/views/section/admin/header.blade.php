@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-3">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 p-3">
@@ -138,6 +138,68 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12 col-md-3">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0 p-3">
+                    <h6 class="mb-1">Logo Mobile</h6>
+                    <p class="text-sm">You can change the mobile's logo here</p>
+                </div>
+                <div class="card-body p-3">
+                    <div class="row">
+                        
+                        <div class="col-xl-12 col-md-6 mb-xl-0 mb-4">
+                        @forelse($logoMobile as $o)
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="{{ asset('img/'.$o->image.'') }}" alt="img-blur-shadow"
+                                            class="img-fluid shadow border-radius-xl" id="imgMobilePreview" width="300px">
+                                        
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <p class="text-gradient text-dark mb-2 text-sm">Logo Mobile</p>
+                                    <form action="{{ route('image.change',$o->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf()
+                                        <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgMobileInput" placeholder="Select Image" aria-label="Image"
+                                    aria-describedby="image-addon" required>
+                                        <input type="hidden" name="section" value="logomobile">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Change Logo Mobile</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="{{ asset('img/noimage.png') }}" alt="img-blur-shadow"
+                                            class="img-fluid shadow border-radius-xl" id="imgMobilePreview" width="200px">
+                                        
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <p class="text-gradient text-dark mb-2 text-sm">Logo Mobile</p>
+                                    <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
+                                    @csrf()
+                                        <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgMobileInput" placeholder="Select Image" aria-label="Image"
+                                    aria-describedby="image-addon" required>
+                                        <input type="hidden" name="section" value="logomobile">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm mb-0">Save Logo Mobile</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endforelse
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @include('section.admin.header-create')
@@ -153,6 +215,16 @@
             imgPreview.src = URL.createObjectURL(file)
         }
     }
+</script>
 
+<script>
+    let imgMobileInput = document.getElementById("imgMobileInput");
+    let imgMobilePreview = document.getElementById("imgMobilePreview");
+    imgMobileInput.onchange = evt => {
+        const [file] = imgMobileInput.files
+        if (file) {
+            imgMobilePreview.src = URL.createObjectURL(file)
+        }
+    }
 </script>
 @endpush

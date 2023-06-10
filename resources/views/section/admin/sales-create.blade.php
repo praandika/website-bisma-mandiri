@@ -34,7 +34,7 @@
                                     aria-describedby="message-addon" required>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-success btn-lg w-100 mt-4 mb-0">Save Sales</button>
+                                <button type="submit" class="btn btn-round bg-gradient-success btn-lg w-100 mt-4 mb-0">Save Sales</button>
                             </div>
                         </form>
                     </div>

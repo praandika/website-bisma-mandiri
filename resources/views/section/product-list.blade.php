@@ -21,7 +21,7 @@
                 @empty
                 <div class="card">
                     <div class="card-content">
-                        <img src="{{ asset('img/product-profile') }}" class="img-fluid">
+                        <img src="{{ asset('img/product-profile.png') }}" class="img-fluid">
                     </div>
                     <div class="card-title">
                         <span class="harga">

@@ -26,11 +26,11 @@
                                     aria-describedby="icon-addon">
                             </div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" name="newtab" type="checkbox" id="newtab" checked="">
+                                <input class="form-check-input" name="newtab" type="checkbox" id="newtab">
                                 <label class="form-check-label" for="newtab">Open in new tab</label>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Save Menu</button>
+                                <button type="submit" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Save Menu</button>
                             </div>
                         </form>
                     </div>

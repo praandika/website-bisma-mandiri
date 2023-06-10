@@ -8,8 +8,6 @@
     <link rel="icon" href="{{ asset('img/icon.png') }}" type="image/gif" sizes="16x16">
     <title>Yamaha Bisma Mandiri</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <script src="https://kit.fontawesome.com/78adb693c3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +15,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('owl/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('owl/assets/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 </head>
 
 <body>
