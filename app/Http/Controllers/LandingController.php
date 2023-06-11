@@ -20,10 +20,10 @@ class LandingController extends Controller
         $logo = Image::where('section','logo')->limit(1)->pluck('image');
         $logoMobile = Image::where('section','logomobile')->limit(1)->pluck('image');
         $location = Map::where('status','show')->limit(1)->get();
-
-        $logo = ($logo) ? $logo = $logo[0] : $logo = 'noimage.png' ;
-        $logoMobile = ($logoMobile != '') ? $logoMobile = $logoMobile[0] : $logoMobile = 'noimage.png' ;
-        $location = ($location != '') ? $location = 'noimage.png' : $location = $location[0] ;
+        
+        $logo = ($logo->count() > 0) ? $logo[0] : 'noimage.png' ;
+        $logoMobile = ($logoMobile->count() > 0) ? $logoMobile[0] : 'noimage.png' ;
+        $location = ($location->count() > 0) ? $location[0] : 'google-maps-logo.png' ;
         
         $header = Header::where('status','show')->get();
         $banner = Banner::where('status','show')->get();

@@ -1,9 +1,6 @@
-@extends('layouts.admin')
-
 @section('menu','edit header')
 @section('title','Edit Header')
 
-@section('content')
 <div class="row">
     <div class="col-sm-12 col-md-6">
         <div class="col-12">
@@ -11,8 +8,8 @@
                 <div class="card-header pb-0">
                     <h6>Edit Menu {{ ucwords($header->menu) }}</h6>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                    <form action="{{ route('header.store') }}" method="post">
+                <div class="card-body px-4 pt-0 pb-4">
+                    <form action="{{ route('header.update',$header->id) }}" method="post">
                         @csrf()
                         @method('PUT')
                         <label for="menu">Menu</label>
@@ -31,11 +28,15 @@
                                 aria-describedby="icon-addon" value="{{ $header->icon }}">
                         </div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" name="newtab" type="checkbox" id="newtab" {{ $header == 1 ? 'checked' : '' }}>
+                            <input class="form-check-input" name="newtab" type="checkbox" id="newtab" {{ $header->newtab == 1 ? 'checked' : '' }}>
                             <label class="form-check-label" for="newtab">Open in new tab</label>
                         </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" name="status" type="checkbox" id="status" {{ $header->status == 'show' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="status">Show Menu</label>
+                        </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Update
+                            <button type="submit" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Update
                                 Menu</button>
                         </div>
                     </form>
@@ -44,4 +45,3 @@
         </div>
     </div>
 </div>
-@endsection

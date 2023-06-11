@@ -1,9 +1,6 @@
-@extends('layouts.admin')
-
 @section('menu','header')
 @section('title','Header')
 
-@section('content')
 <div class="row">
     <div class="col-12">
         <button type="button" class="btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal"
@@ -39,8 +36,8 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex px-2 py-1">
-                                            <div class="avatar avatar-sm me-3">
-                                                {{ $o->icon }}
+                                            <div class="avatar avatar-sm me-3" style="color: black;">
+                                                {!! $o->icon !!}
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 text-sm">{{ $o->menu }}</h6>
@@ -100,6 +97,7 @@
                                     <p class="text-gradient text-dark mb-2 text-sm">Logo</p>
                                     <form action="{{ route('image.change',$o->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf()
+                                        <input type="hidden" name="img_prev" value="{{ $o->image }}">
                                         <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                                         <input type="hidden" name="section" value="logo">
@@ -162,6 +160,7 @@
                                     <p class="text-gradient text-dark mb-2 text-sm">Logo Mobile</p>
                                     <form action="{{ route('image.change',$o->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf()
+                                        <input type="hidden" name="img_prev" value="{{ $o->image }}">
                                         <input type="file" name="image" class="form-control mb-3" accept="image/*" id="imgMobileInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                                         <input type="hidden" name="section" value="logomobile">
@@ -203,7 +202,6 @@
 </div>
 
 @include('section.admin.header-create')
-@endsection
 
 @push('after-script')
 <script>

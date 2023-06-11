@@ -35,7 +35,7 @@
             @foreach($header as $o)
             <div class="col-3">
                 <a class="menulist" href="{{ $o->link }}" @if($o->newtab == 1) target="_blank" @endif>
-                    {{ $o->icon }}
+                    {!! $o->icon !!}
                     <span>{{ $o->menu }}</span>
                 </a>
             </div>

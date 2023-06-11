@@ -3,11 +3,20 @@
         <div class="carousel-inner">
             @forelse($banner as $o)
             <div class="carousel-item active">
-                <img src="{{ asset('img/'.$o->image.'') }}" class="d-block w-100">
+                <abbr title="{{ ucwords($o->name) }}">
+                    <img src="{{ asset('img/'.$o->image.'') }}" class="d-block w-100">
+                </abbr>
             </div>
             @empty
             <div class="carousel-item active">
-                <img src="{{ asset('img/main-banner.png') }}" class="d-block w-100">
+                <abbr title="Main Banner">
+                    <img src="{{ asset('img/main-banner.png') }}" class="d-block w-100">
+                </abbr>
+            </div>
+            <div class="carousel-item active">
+                <abbr title="Main Banner">
+                    <img src="{{ asset('img/main-banner.png') }}" class="d-block w-100">
+                </abbr>
             </div>
             @endforelse
         </div>

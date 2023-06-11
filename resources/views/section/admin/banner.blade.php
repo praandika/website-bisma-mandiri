@@ -1,9 +1,6 @@
-@extends('layouts.admin')
-
 @section('menu','banner')
 @section('title','Banner')
 
-@section('content')
 <div class="col-12">
     <div class="card mb-4">
         <div class="card-header pb-0 p-3">
@@ -54,4 +51,3 @@
 </div>
 
 @include('section.admin.banner-create')
-@endsection

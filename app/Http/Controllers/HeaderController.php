@@ -76,7 +76,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        view('home',compact('header'));
+        return view('home',compact('header'));
     }
 
     /**
@@ -94,11 +94,18 @@ class HeaderController extends Controller
             $check = 0;
         }
 
+        if ($request->status != null) {
+            $status = 'show';
+        } else {
+            $status = 'hide';
+        }
+
         $data = Header::find($header->id);
         $data->menu = $request->menu;
         $data->link = $request->link;
         $data->icon = $request->icon;
         $data->newtab = $check;
+        $data->status = $status;
         $data->update();
         toast('Menu has been updated!','success');
         return redirect()->back();
