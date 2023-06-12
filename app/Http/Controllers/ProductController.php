@@ -74,7 +74,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('home', compact('product'));
     }
 
     /**
@@ -86,7 +86,32 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        if ($request->status != null) {
+            $status = 'show';
+        } else {
+            $status = 'hide';
+        }
+
+        $data = Product::find($product->id);
+        $data->name = $request->name;
+        $data->price = $request->price;
+        $data->transmition = $request->transmition;
+        $data->status = $status;
+        if ($request->hasFile('image')) {
+            if ($data->image != '' && $data->image != 'noimage.png') {
+                $img_prev = $request->img_prev;
+                unlink('img/'.$img_prev);
+            }
+            $img = $request->file('image');
+            $img_file = time()."_".$img->getClientOriginalName();
+            $dir_img = 'img';
+            $img->move($dir_img,$img_file);
+    
+            $data->image = $img_file;
+        }
+        $data->update();
+        toast('Product has been updated!','success');
+        return redirect()->back();
     }
 
     /**
