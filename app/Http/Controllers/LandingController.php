@@ -27,6 +27,7 @@ class LandingController extends Controller
         
         $header = Header::where('status','show')->get();
         $banner = Banner::where('status','show')->get();
+        $active = Banner::orderBy('id','asc')->limit(1)->pluck('id');
         $product = Product::where('status','show')->get();
         $featured = Featured::where('status','show')->get();
         $sales = Sales::where('status','show')->get();
@@ -34,6 +35,6 @@ class LandingController extends Controller
         $contact_widget = ContactWidget::where('status','show')->get();
         $marketplace_widget = Marketplace::where('status','show')->get();
         $credit = 'CRM Bisma Group | Supported by dikaprana.com';
-        return view('landing', compact('logo','logoMobile','header','banner','product','featured','sales','footer','contact_widget','marketplace_widget','location','credit'));
+        return view('landing', compact('logo','logoMobile','header','banner','product','featured','sales','footer','contact_widget','marketplace_widget','location','credit','active'));
     }
 }
