@@ -74,7 +74,7 @@ class MarketplaceController extends Controller
      */
     public function edit(Marketplace $marketplace)
     {
-        //
+        return view('home', compact('marketplace'));
     }
 
     /**
@@ -86,7 +86,39 @@ class MarketplaceController extends Controller
      */
     public function update(Request $request, Marketplace $marketplace)
     {
-        //
+        if ($request->status != null) {
+            $status = 'show';
+        } else {
+            $status = 'hide';
+        }
+
+        if ($request->show_title != null) {
+            $show_title = 'show';
+        } else {
+            $show_title = 'hide';
+        }
+
+        $data = Marketplace::find($marketplace->id);
+        $data->marketplace = $request->marketplace;
+        $data->marketplace_abbr = $request->marketplace_abbr;
+        $data->link = $request->link;
+        $data->show_title = $show_title;
+        $data->status = $status;
+        if ($request->hasFile('image')) {
+            if ($data->image != '' && $data->image != 'noimage.png') {
+                $img_prev = $request->img_prev;
+                unlink('img/'.$img_prev);
+            }
+            $img = $request->file('image');
+            $img_file = time()."_".$img->getClientOriginalName();
+            $dir_img = 'img';
+            $img->move($dir_img,$img_file);
+    
+            $data->image = $img_file;
+        }
+        $data->update();
+        toast('Marketplace has been updated!','success');
+        return redirect()->back();
     }
 
     /**

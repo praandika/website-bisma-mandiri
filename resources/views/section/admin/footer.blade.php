@@ -15,7 +15,7 @@
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                            <div class="card h-100 card-plain border">
+                            <div class="card h-100 card-plain border mb-4">
                                 <div class="card-body d-flex flex-column justify-content-center text-center">
                                     <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#addFooter">
                                         <i class="fa fa-plus text-secondary mb-3"></i>
@@ -26,7 +26,7 @@
                         </div>
                         @foreach($data as $o)
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                            <div class="card card-blog card-plain">
+                            <div class="card card-blog card-plain mb-4">
                                 <div class="position-relative">
                                     <a class="d-block shadow-xl border-radius-xl">
                                         <img src="{{ asset('img/'.$o->image.'') }}" alt="img-blur-shadow"

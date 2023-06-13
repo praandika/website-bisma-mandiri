@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('marketplaces', function (Blueprint $table) {
             $table->id();
-            $table->string('marketplace');
+            $table->string('marketplace')->nullable();
             $table->string('marketplace_abbr');
             $table->string('link');
             $table->string('image');
+            $table->enum('show_title',['show','hide']);
             $table->enum('status',['show','hide']);
             $table->timestamps();
         });

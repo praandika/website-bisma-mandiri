@@ -21,7 +21,7 @@
                                     aria-describedby="link-addon">
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Save Media Social</button>
+                                <button type="submit" class="btn btn-round bg-gradient-primary btn-lg w-100 mt-4 mb-0">Save Media Social</button>
                             </div>
                         </form>
                     </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ContactWidget;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class ContactWidgetController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class ContactWidgetController extends Controller
      */
     public function store(Request $request)
     {
-        $data = New ContactWidget();
+        $data = New ContactWidget;
         $data->media_social = $request->media_social;
         $data->link = $request->link;
         $data->save();
@@ -64,7 +66,7 @@ class ContactWidgetController extends Controller
      */
     public function edit(ContactWidget $contactWidget)
     {
-        //
+        return view('home', compact('contactWidget'));
     }
 
     /**
@@ -76,7 +78,13 @@ class ContactWidgetController extends Controller
      */
     public function update(Request $request, ContactWidget $contactWidget)
     {
-        //
+        $data = ContactWidget::find($contactWidget->id);
+        $data->media_social = $request->media_social;
+        $data->link = $request->link;
+        $data->update();
+
+        toast('Media social has been updated!','success');
+        return redirect()->back();
     }
 
     /**

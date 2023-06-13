@@ -39,7 +39,7 @@
                                 </h5>
                             </a>
                             <p class="mb-4 text-sm">
-                                {{ ucwords($o->price) }}
+                                Rp{{ number_format($o->price, 0, ',','.') }}
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="{{ route('product.edit',$o->id) }}" class="btn btn-outline-primary btn-sm mb-0">View Product</a>

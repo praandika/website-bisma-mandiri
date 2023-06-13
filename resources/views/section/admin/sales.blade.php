@@ -39,7 +39,7 @@
                                 </h5>
                             </a>
                             <p class="mb-4 text-sm">
-                                {{ ucwords($o->status) }} <br> {{ $o->message }}
+                                {{ ucwords($o->status) }} <br> {{ str_replace('%20', ' ', $o->message)}}
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="{{ route('sales.edit',$o->id) }}" class="btn btn-outline-primary btn-sm mb-0">View Sales</a>

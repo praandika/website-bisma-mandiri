@@ -133,7 +133,7 @@
             <div id="carouselAutoplaying" class="carousel slide banner" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach($featured as $o)
-                    <div class="carousel-item active">
+                    <div class="carousel-item {{ $o->id == $active[0] ? 'active' : '' }}">
                         <div class="featured-product">
                             <div class="title">{{ ucwords($o->name) }}</div>
                             <img src="{{ asset('img/'.$o->image) }}" class="img-fluid">

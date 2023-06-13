@@ -39,7 +39,7 @@
                                 </h5>
                             </a>
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="{{ route('banner.edit',$o->id) }}" class="btn btn-outline-primary btn-sm mb-0">View Mobile Featured</a>
+                                <a href="{{ route('featured.edit',$o->id) }}" class="btn btn-outline-primary btn-sm mb-0">View Mobile Featured</a>
                             </div>
                         </div>
                     </div>
