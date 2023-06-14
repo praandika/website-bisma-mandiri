@@ -1,7 +1,7 @@
     <!-- ============================================================Contact Widget============================================================ -->
     <div class="contact-widget fadeInKiri">
         @foreach($contact_widget as $o)
-        <a href="{{ $o->link }}" class="contact {{ strtolower($o->media_social) }}" target="_blank">
+        <a href="{{ $o->link }}" class="contact {{ strtolower($o->media_social) }}" @if($o->newtab == 1) target="_blank" @endif>
             <i class="fa-brands fa-{{ strtolower($o->media_social) }}" style="color: #ffffff;"></i>
         </a>
         @endforeach
@@ -12,9 +12,9 @@
             <i class="fa-brands fa-whatsapp fa-shake" style="color: #ffffff;"></i>
         </div>
 
-        @foreach($contact_widget as $o)
+        @foreach($contact_widget_mobile as $o)
         <div class="{{ strtolower($o->media_social) }}-mobile">
-            <a href="{{ $o->link }}" target="_blank">
+            <a href="{{ $o->link }}" @if($o->newtab == 1) target="_blank" @endif>
                 <i class="fa-brands fa-{{ strtolower($o->media_social) }} fa-shake" style="color: #ffffff;"></i>
             </a>
         </div>

@@ -38,9 +38,16 @@ class ContactWidgetController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->newtab != null) {
+            $check = 1;
+        } else {
+            $check = 0;
+        }
+
         $data = New ContactWidget;
         $data->media_social = $request->media_social;
         $data->link = $request->link;
+        $data->newtab = $check;
         $data->save();
 
         toast('Media social successfully added','success');
@@ -64,9 +71,9 @@ class ContactWidgetController extends Controller
      * @param  \App\Models\ContactWidget  $contactWidget
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactWidget $contactWidget)
+    public function edit(ContactWidget $contact)
     {
-        return view('home', compact('contactWidget'));
+        return view('home', compact('contact'));
     }
 
     /**
@@ -76,11 +83,25 @@ class ContactWidgetController extends Controller
      * @param  \App\Models\ContactWidget  $contactWidget
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactWidget $contactWidget)
+    public function update(Request $request, ContactWidget $contact)
     {
-        $data = ContactWidget::find($contactWidget->id);
+        if ($request->newtab != null) {
+            $check = 1;
+        } else {
+            $check = 0;
+        }
+
+        if ($request->status != null) {
+            $status = 'show';
+        } else {
+            $status = 'hide';
+        }
+
+        $data = ContactWidget::find($contact->id);
         $data->media_social = $request->media_social;
         $data->link = $request->link;
+        $data->newtab = $check;
+        $data->status = $status;
         $data->update();
 
         toast('Media social has been updated!','success');

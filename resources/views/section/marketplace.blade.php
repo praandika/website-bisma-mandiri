@@ -11,8 +11,8 @@
     @foreach($marketplace_widget as $o)
     <div class="{{ strtolower($o->marketplace) }}-mobile marketplace-mobile fadeInKiri">
         <a href="{{ $o->link }}" target="_blank">
-            <img src="{{ asset('img/'.$o->image.'') }}" class="img-fluid">
-            <span>{{ ucwords($o->marketplace_abbr) }}</span>
+            <img src="{{ asset('img/'.$o->image_mobile.'') }}" class="img-fluid">
+            <span>{{ $o->show_title_mobile == 'show' ? ucwords($o->marketplace_abbr) : '' }}</span>
         </a>
     </div>
     @endforeach

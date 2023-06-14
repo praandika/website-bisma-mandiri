@@ -34,8 +34,12 @@ class LandingController extends Controller
         $sales = Sales::where('status','show')->get();
         $footer = Footer::where('status','show')->get();
         $contact_widget = ContactWidget::where('status','show')->get();
+        $contact_widget_mobile = ContactWidget::where([
+            ['status','show'],
+            ['media_social','!=','Whatsapp'],
+        ])->get();
         $marketplace_widget = Marketplace::where('status','show')->get();
         $credit = 'CRM Bisma Group | Supported by dikaprana.com';
-        return view('landing', compact('logo','logoMobile','header','banner','product','featured','sales','footer','contact_widget','marketplace_widget','location','credit','active','activeFeatured'));
+        return view('landing', compact('logo','logoMobile','header','banner','product','featured','sales','footer','contact_widget','contact_widget_mobile','marketplace_widget','location','credit','active','activeFeatured'));
     }
 }

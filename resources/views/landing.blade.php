@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('owl/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('owl/assets/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 </head>
 
 <body>
@@ -36,13 +36,25 @@
 
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                center: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true
-            });
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                responsiveClass:true,
+                autoplay:true,
+                autoplayTimeout:2000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{
+                        items:2,
+                        margin:25,
+                        nav:true
+                    },
+                    600:{
+                        items:3,
+                        margin:10,
+                        nav:false
+                    }
+                }
+            })
         });
 
     </script>

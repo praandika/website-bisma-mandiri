@@ -18,6 +18,14 @@
                                 <input type="file" name="image" class="form-control" accept="image/*" id="imgInput" placeholder="Select Image" aria-label="Image"
                                     aria-describedby="image-addon" required>
                             </div>
+                            <div class="input-group mb-3">
+                                <img src="{{ asset('img/noimage.png') }}" alt="Uploading Image" id="imgPreviewMobile" width="300px">
+                            </div>
+                            <label for="image_mobile">Select Mobile Image</label>
+                            <div class="input-group mb-3">
+                                <input type="file" name="image_mobile" class="form-control" accept="image/*" id="imgInputMobile" placeholder="Select Mobile Image" aria-label="Mobile Image"
+                                    aria-describedby="image-addon" required>
+                            </div>
                             <label for="marketplace">Marketplace Full Name</label>
                             <div class="input-group mb-3">
                                 <input type="text" name="marketplace" class="form-control" placeholder="Marketplace Title" aria-label="marketplace"
@@ -60,6 +68,16 @@
             imgPreview.src = URL.createObjectURL(file)
         }
     }
+</script>
 
+<script>
+    let imgInputMobile = document.getElementById("imgInputMobile");
+    let imgPreviewMobile = document.getElementById("imgPreviewMobile");
+    imgInputMobile.onchange = evt => {
+        const [file] = imgInputMobile.files
+        if (file) {
+            imgPreviewMobile.src = URL.createObjectURL(file)
+        }
+    }
 </script>
 @endpush

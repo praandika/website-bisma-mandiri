@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('media_social');
             $table->string('link');
             $table->enum('status',['show','hide']);
+            $table->boolean('newtab');
             $table->timestamps();
         });
     }
