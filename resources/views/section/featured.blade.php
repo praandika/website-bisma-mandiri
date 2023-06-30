@@ -1,5 +1,5 @@
     <!-- ============================================================Featured============================================================ -->
-    <div class="featured">
+    <div class="featured" style="background-image: url('{{ asset('img/parallax4.png') }}');">
         <div class="featured-wrap featured-desktop">
             <img src="{{ asset('img/motor/filano-lux-white-pearl.png') }}" class="img-fluid">
             <div class="stage"></div>
