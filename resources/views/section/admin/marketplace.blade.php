@@ -39,6 +39,7 @@
                                 </h5>
                             </a>
                             <p class="mb-4 text-sm">
+                                Show Title : {{ $o->show_title }} <br>
                                 {{ $o->link }}
                             </p>
                             <div class="d-flex align-items-center justify-content-between">

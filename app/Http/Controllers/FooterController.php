@@ -74,7 +74,7 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        return view('home', compact('footer'));
     }
 
     /**
@@ -86,7 +86,29 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        if ($request->status != null) {
+            $status = 'show';
+        } else {
+            $status = 'hide';
+        }
+
+        $data = Footer::find($footer->id);
+        $data->status = $status;
+        if ($request->hasFile('image')) {
+            if ($data->image != '' && $data->image != 'noimage.png') {
+                $img_prev = $request->img_prev;
+                unlink('img/'.$img_prev);
+            }
+            $img = $request->file('image');
+            $img_file = time()."_".$img->getClientOriginalName();
+            $dir_img = 'img';
+            $img->move($dir_img,$img_file);
+    
+            $data->image = $img_file;
+        }
+        $data->update();
+        toast('Footer image has been updated!','success');
+        return redirect()->back();
     }
 
     /**

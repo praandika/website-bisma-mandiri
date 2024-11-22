@@ -31,11 +31,11 @@
                             <fieldset class="border p-3">
                                 <label class="w-auto">Transmition</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="transmition" id="at" checked>
+                                    <input class="form-check-input" type="radio" name="transmition" id="at" value="at" checked>
                                     <label class="custom-control-label" for="at">AT (Automatic)</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="transmition" id="mt">
+                                    <input class="form-check-input" type="radio" name="transmition" id="mt" value="mt">
                                     <label class="custom-control-label" for="mt">MT (Manual)</label>
                                 </div>
                             </fieldset>

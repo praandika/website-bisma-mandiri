@@ -36,13 +36,25 @@
 
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                center: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true
-            });
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                responsiveClass:true,
+                autoplay:true,
+                autoplayTimeout:2000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{
+                        items:2,
+                        margin:25,
+                        nav:true
+                    },
+                    600:{
+                        items:3,
+                        margin:10,
+                        nav:false
+                    }
+                }
+            })
         });
 
     </script>

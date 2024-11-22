@@ -95,16 +95,18 @@ class BannerController extends Controller
         $data->name = $request->name;
         $data->description = $request->description;
         $data->status = $status;
-        if ($data->image != '' && $data->image != 'noimage.png') {
-            $img_prev = $request->img_prev;
-            unlink('img/'.$img_prev);
+        if ($request->hasFile('image')) {
+            if ($data->image != '' && $data->image != 'noimage.png') {
+                $img_prev = $request->img_prev;
+                unlink('img/'.$img_prev);
+            }
+            $img = $request->file('image');
+            $img_file = time()."_".$img->getClientOriginalName();
+            $dir_img = 'img';
+            $img->move($dir_img,$img_file);
+    
+            $data->image = $img_file;
         }
-        $img = $request->file('image');
-        $img_file = time()."_".$img->getClientOriginalName();
-        $dir_img = 'img';
-        $img->move($dir_img,$img_file);
-
-        $data->image = $img_file;
         $data->update();
         toast('Banner has been updated!','success');
         return redirect()->back();

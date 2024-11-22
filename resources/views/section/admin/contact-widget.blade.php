@@ -19,13 +19,13 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Media
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Media
                                     Social
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Link</th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Status</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -33,14 +33,14 @@
                         <tbody>
                             @foreach($data as $o)
                             <tr>
-                                <td class="align-middle text-center">
+                                <td>
                                     <span
                                         class="text-secondary text-xs font-weight-bold">{{ ucwords($o->media_social) }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td>
                                     <span class="text-secondary text-xs font-weight-bold">{{ $o->link }}</span>
                                 </td>
-                                <td class="align-middle text-center text-sm">
+                                <td>
                                     <span
                                         class="badge badge-sm bg-gradient-{{ $o->status == 'show' ? 'success' : 'secondary' }}">{{ ucwords($o->status) }}</span>
                                 </td>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
+            $table->text('link');
             $table->enum('status',['show','hide']);
             $table->timestamps();
         });
