@@ -39,7 +39,7 @@ class LandingController extends Controller
             ['media_social','!=','Whatsapp'],
         ])->get();
         $marketplace_widget = Marketplace::where('status','show')->get();
-        $credit = 'CRM Bisma Group | Supported by dikaprana.com';
+        $credit = 'CRM Bisma Group | Supported by <a href="https://www.instagram.com/dikanayoga/" target="_blank">Andika Pranayoga</a>';
         return view('landing', compact('logo','logoMobile','header','banner','product','featured','sales','footer','contact_widget','contact_widget_mobile','marketplace_widget','location','credit','active','activeFeatured'));
     }
 }
