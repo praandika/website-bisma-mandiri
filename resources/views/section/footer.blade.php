@@ -30,6 +30,6 @@
         </div>
     </footer>
     <div class="credit">
-        <p>&copy; CRM Bisma Group | <a href="{{ $credit }}" target="_blank" style="color: #ffffff; font-weight: bold;">Andika Pranayoga</a></p>
+        <p>&copy; CRM Bisma Group | <a href="{{ $credit }}" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none;">Andika Pranayoga</a></p>
     </div>
     <!-- ============================================================END Footer============================================================ -->
